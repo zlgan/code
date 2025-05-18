@@ -21,6 +21,10 @@ int main()
 	//month=13常量不能修改
 	cout << "一年总共有" << month << "个月"<<endl;
 	cout << "my name is " << myname << endl;
+
+	char c1 = 256;
+	cout << c1 << endl;
+
 	system("pause");
 	return 0;
 }
