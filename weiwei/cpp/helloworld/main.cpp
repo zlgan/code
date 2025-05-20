@@ -21,9 +21,36 @@ int main()
 	//month=13常量不能修改
 	cout << "一年总共有" << month << "个月"<<endl;
 	cout << "my name is " << myname << endl;
-
-	char c1 = 256;
-	cout << c1 << endl;
+	/*
+	sizeof()是用来计算某个数据类型的空间大小。
+	*******************
+	一个字节有8个位
+	*******************
+	char=一个字符//字符串l1
+	short=两个字节
+	int=四个字节
+	long=四个字节
+	long long=八个字节
+	！！！！！！
+	*/
+	cout << "sizeof(char)=" << sizeof(char) << endl;
+	cout << "sizeof(short)=" << sizeof(short) << endl;
+	cout << "sizeof(int)=" << sizeof(int) << endl;
+	cout << "sizeof(long)=" << sizeof(long) << endl;
+	cout << "sizeof(long long)=" << sizeof(long long) << endl;
+	//****************************************************
+	float f1 = 3.14f;
+	double d1 = 3.14;
+	cout << "f1=" << f1 << endl;
+	cout << "d1=" << d1 << endl;
+	cout << "sizeof(f1)=" << sizeof(f1)<< endl;
+	cout << "sizeof(d1)=" << sizeof(d1)<< endl;
+	float f2 = 34e-3;
+	cout << "答案是：" << f2 << endl; //0.034
+	//char 赋值中的'a'只能用单引号
+	char ch = 'a';
+	cout << ch << endl;//a
+	cout << (int)ch << endl;//97
 
 	system("pause");
 	return 0;
