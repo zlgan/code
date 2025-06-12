@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 int main()
@@ -42,3 +43,7 @@ int main()
 	i = (i > pig3 ? i : pig3);
 	cout << "最重的是" << i << endl;
 }
+	system("pause");
+	return 0;
+
+}	

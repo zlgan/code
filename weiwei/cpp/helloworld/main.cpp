@@ -1,30 +1,46 @@
-// 编译的时侯将iostream的内容拷贝到这里 
-#include <iostream>
-// i input 
-// o output 
-//stream 流水
-//引入命名空间， 简化cout的写法
-using namespace std;
-//编译的时候代码中的常量名会被替换成值
-#define pi 3.1415
-#define myname "weiwei"
 
+#include <iostream>
+#include <string>
+using namespace std;
 int main()
 {
-	int a = 35;
-	cout << "hello world"<< endl<< a << endl;
+	int num1 = 0;
+	int num2 = 0;
+	int num3 = 0;
+	int n = 0;
+	cout << "请输入第一只的体重：" << endl;
+	cin >> num1;
+	cout << "请输入第二只的体重：" << endl;
+	cin >> num2;
+	cout << "请输入第三只的体重：" << endl;
+	cin >> num3;
 
-	//圆的半径，周长公式=2* pi * r
-	int r = 2;
-	cout << "圆的周长是： " << 2 * pi * r << endl;
-	const short month = 12; //月份
-	//month=13常量不能修改
-	cout << "一年总共有" << month << "个月"<<endl;
-	cout << "my name is " << myname << endl;
-
-	char c1 = 256;
-	cout << c1 << endl;
-
+	/*if (num1 > num2)
+	{
+		if (num1 > num3)
+		{
+			cout << "第一只小猪最重" << endl;
+		}
+		else
+		{
+			cout << "第三只小猪最重" << endl;
+		}
+	}
+	else
+	{
+		if (num2 > num3)
+		{
+			cout << "第二只小猪最重" << endl;
+		}
+		else
+		{
+			cout << "第三只小猪最重" << endl;
+		}
+	}*/
+	//a>b?a:b
+	n=num1 > num2 ? num1 : num2;
+	n=n > num3 ? n : num3;
+	cout << n << endl;
 	system("pause");
 	return 0;
 }
