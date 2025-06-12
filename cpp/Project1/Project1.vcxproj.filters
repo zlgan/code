@@ -15,13 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="01basic.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="log.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="common.h">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="02PointerAndRef.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="template.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

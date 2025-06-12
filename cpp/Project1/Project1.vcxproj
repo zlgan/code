@@ -125,7 +125,10 @@
   <ItemGroup>
     <ClCompile Include="common.h" />
     <ClCompile Include="log.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="01basic.cpp" />
+    <ClCompile Include="02PointerAndRef.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="template.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
