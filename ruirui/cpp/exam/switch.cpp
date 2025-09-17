@@ -10,14 +10,14 @@ int main()
 		case 10:
 		case 9:
 			cout <<"经典电影"<<endl;
-		break;
+			break;
 		case 8:
 		case 7:
 			cout <<"不错电影"<<endl;
-		break;
+			break;
 		default:
 			cout <<"烂片电影"<<endl;
-		break;
+			break;
 	}
-	
+
 }

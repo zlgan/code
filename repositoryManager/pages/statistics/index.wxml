@@ -1,0 +1,139 @@
+<view class="container">
+  <view class="header">
+    <view class="date-range">
+      <picker mode="date" fields="month" value="{{startDate}}" bindchange="onStartDateChange">
+        <view class="date-picker">{{startDate || '开始月份'}}</view>
+      </picker>
+      <text class="separator">至</text>
+      <picker mode="date" fields="month" value="{{endDate}}" bindchange="onEndDateChange">
+        <view class="date-picker">{{endDate || '结束月份'}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="overview-section">
+    <view class="overview-card">
+      <view class="card-title">入库统计</view>
+      <view class="card-content">
+        <view class="stat-item">
+          <text class="label">入库总金额</text>
+          <text class="value amount">¥{{inboundStats.totalAmount}}</text>
+        </view>
+        <view class="stat-item">
+          <text class="label">入库单数</text>
+          <text class="value">{{inboundStats.totalCount}}单</text>
+        </view>
+        <view class="stat-item">
+          <text class="label">平均单价</text>
+          <text class="value">¥{{inboundStats.averagePrice}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="overview-card">
+      <view class="card-title">出库统计</view>
+      <view class="card-content">
+        <view class="stat-item">
+          <text class="label">出库总金额</text>
+          <text class="value amount">¥{{outboundStats.totalAmount}}</text>
+        </view>
+        <view class="stat-item">
+          <text class="label">出库单数</text>
+          <text class="value">{{outboundStats.totalCount}}单</text>
+        </view>
+        <view class="stat-item">
+          <text class="label">平均单价</text>
+          <text class="value">¥{{outboundStats.averagePrice}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="tab-bar">
+    <view class="tab {{activeTab === 'product' ? 'active' : ''}}" bindtap="switchTab" data-tab="product">
+      <text>产品分析</text>
+    </view>
+    <view class="tab {{activeTab === 'trend' ? 'active' : ''}}" bindtap="switchTab" data-tab="trend">
+      <text>趋势分析</text>
+    </view>
+  </view>
+
+  <view class="content-section">
+    <!-- 产品分析 -->
+    <view class="product-analysis" wx:if="{{activeTab === 'product'}}">
+      <view class="analysis-header">
+        <text class="title">Top 10 产品</text>
+        <view class="type-switch">
+          <view class="switch-item {{analysisType === 'amount' ? 'active' : ''}}" 
+                bindtap="switchAnalysisType" 
+                data-type="amount">
+            按金额
+          </view>
+          <view class="switch-item {{analysisType === 'quantity' ? 'active' : ''}}" 
+                bindtap="switchAnalysisType" 
+                data-type="quantity">
+            按数量
+          </view>
+        </view>
+      </view>
+
+      <view class="product-list">
+        <view class="product-item" wx:for="{{productRankList}}" wx:key="code">
+          <view class="rank-info">
+            <text class="rank-number">{{index + 1}}</text>
+            <view class="product-info">
+              <text class="product-name">{{item.name}}</text>
+              <text class="product-code">#{{item.code}}</text>
+            </view>
+          </view>
+          <view class="stat-info">
+            <text class="stat-value">{{analysisType === 'amount' ? '¥' + item.amount : item.quantity + ' ' + item.unit}}</text>
+            <text class="stat-label">{{analysisType === 'amount' ? '金额' : '数量'}}</text>
+          </view>
+          <view class="progress-bar">
+            <view class="progress" style="width: {{item.percentage}}%"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 趋势分析 -->
+    <view class="trend-analysis" wx:if="{{activeTab === 'trend'}}">
+      <view class="analysis-header">
+        <text class="title">月度趋势</text>
+        <view class="type-switch">
+          <view class="switch-item {{trendType === 'amount' ? 'active' : ''}}" 
+                bindtap="switchTrendType" 
+                data-type="amount">
+            按金额
+          </view>
+          <view class="switch-item {{trendType === 'count' ? 'active' : ''}}" 
+                bindtap="switchTrendType" 
+                data-type="count">
+            按单数
+          </view>
+        </view>
+      </view>
+
+      <view class="trend-chart">
+        <canvas canvas-id="trendChart" style="width: 100%; height: 200px;"></canvas>
+        <view class="tooltip" wx:if="{{tooltipData}}">
+          <view wx:for="{{tooltipData}}" wx:key="text">
+            {{item.text}}: {{item.value}}
+          </view>
+        </view>
+      </view>
+
+      <view class="trend-legend">
+        <view class="legend-item">
+          <view class="color-block inbound"></view>
+          <text>入库</text>
+        </view>
+        <view class="legend-item">
+          <view class="color-block outbound"></view>
+          <text>出库</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

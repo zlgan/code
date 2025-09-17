@@ -1,4 +1,4 @@
-#include<bits/stdc++.h> 
+#include<bits/stdc++.h>
 using namespace std;
 int main()
 {
@@ -11,16 +11,16 @@ int main()
 		cin>>kehu;
 		if(kehu>zhi)
 		{
-			cout<<"你猜的大了"<<endl; 
+			cout<<"你猜的大了"<<endl;
 		}
 		else if(kehu<zhi)
 		{
-			cout<<"你猜的小了"<<endl; 
+			cout<<"你猜的小了"<<endl;
 		}
 		else
 		{
 			cout<<"你猜的对了"<<endl;
-			break; 
+			break;
 		}
 	}
 }

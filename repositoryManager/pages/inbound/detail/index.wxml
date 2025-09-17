@@ -1,0 +1,67 @@
+<view class="container">
+  <view class="detail-card card">
+    <view class="card-header">
+      <view class="order-info">
+        <text class="order-no">{{record.orderNo}}</text>
+        <text class="type">{{record.type}}</text>
+      </view>
+      <text class="date">{{record.date}}</text>
+    </view>
+
+    <view class="card-content">
+      <view class="info-section">
+        <text class="section-title">产品信息</text>
+        <view class="info-item">
+          <text class="label">产品名称</text>
+          <text class="value">{{record.product.name}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">产品编号</text>
+          <text class="value">{{record.product.code}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">入库数量</text>
+          <text class="value">{{record.quantity}} {{record.product.unit}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">入库单价</text>
+          <text class="value">¥{{record.price}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">入库金额</text>
+          <text class="value amount">¥{{record.amount}}</text>
+        </view>
+      </view>
+
+      <view class="info-section" wx:if="{{record.supplier.id}}">
+        <text class="section-title">供应商信息</text>
+        <view class="info-item">
+          <text class="label">供应商名称</text>
+          <text class="value">{{record.supplier.name}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">联系人</text>
+          <text class="value">{{record.supplier.contact}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">联系电话</text>
+          <text class="value">{{record.supplier.phone}}</text>
+        </view>
+      </view>
+
+      <view class="info-section" wx:if="{{record.remark}}">
+        <text class="section-title">备注信息</text>
+        <view class="remark">{{record.remark}}</view>
+      </view>
+    </view>
+
+    <view class="card-footer">
+      <text class="create-time">创建时间：{{createTimeStr}}</text>
+    </view>
+  </view>
+
+  <view class="footer-buttons">
+    <button class="btn btn-default" bindtap="onPrint">打印单据</button>
+    <button class="btn btn-primary" bindtap="onShare">分享</button>
+  </view>
+</view>

@@ -1,0 +1,64 @@
+<view class="container">
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索产品名称/编号" bindinput="onSearchInput" value="{{searchKey}}" />
+    <view class="filter-btn" bindtap="showFilterPopup">
+      <text>筛选</text>
+      <image class="icon-small" src="/assets/icons/filter.png" mode="aspectFit"></image>
+    </view>
+  </view>
+
+  <view class="product-list">
+    <view class="product-item card" wx:for="{{filteredProducts}}" wx:key="id" bindtap="editProduct" data-id="{{item.id}}">
+      <view class="product-info">
+        <image class="product-image" src="{{item.image || '/assets/icons/default-product.png'}}" mode="aspectFill"></image>
+        <view class="product-details">
+          <view class="product-name">{{item.name}}</view>
+          <view class="product-code text-secondary">编号：{{item.code || '暂无'}}</view>
+          <view class="product-category text-secondary">类别：{{item.category}}</view>
+        </view>
+      </view>
+      <view class="product-stock">
+        <view class="stock-value {{item.stock <= item.warningStock ? 'text-warning' : ''}}">
+          库存：{{item.stock || 0}} {{item.unit}}
+        </view>
+        <view class="stock-warning" wx:if="{{item.stock <= item.warningStock}}">
+          <image class="icon-small" src="/assets/icons/warning.png" mode="aspectFit"></image>
+          <text class="text-warning">库存预警</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="add-btn" bindtap="navigateToAdd">
+    <image class="icon-medium" src="/assets/icons/add.png" mode="aspectFit"></image>
+  </view>
+
+  <!-- 筛选弹窗 -->
+  <view class="popup" wx:if="{{showFilter}}">
+    <view class="popup-mask" bindtap="hideFilterPopup"></view>
+    <view class="popup-content">
+      <view class="popup-header">
+        <text>筛选条件</text>
+        <image class="icon-small" src="/assets/icons/close.png" mode="aspectFit" bindtap="hideFilterPopup"></image>
+      </view>
+      <view class="popup-body">
+        <view class="filter-item">
+          <text class="filter-label">产品类别</text>
+          <picker mode="selector" range="{{categories}}" bindchange="onCategoryChange" value="{{categoryIndex}}">
+            <view class="picker">{{categories[categoryIndex] || '请选择'}}</view>
+          </picker>
+        </view>
+        <view class="filter-item">
+          <text class="filter-label">库存状态</text>
+          <picker mode="selector" range="{{stockStatus}}" bindchange="onStockStatusChange" value="{{stockStatusIndex}}">
+            <view class="picker">{{stockStatus[stockStatusIndex] || '请选择'}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="popup-footer">
+        <button class="btn" bindtap="resetFilter">重置</button>
+        <button class="btn btn-primary" bindtap="applyFilter">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

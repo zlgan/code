@@ -1,0 +1,76 @@
+<view class="container">
+  <form bindsubmit="submitForm">
+    <view class="form-group card">
+      <view class="image-upload" bindtap="chooseImage">
+        <image class="preview-image" src="{{formData.image || '/assets/icons/upload-image.png'}}" mode="aspectFill"></image>
+        <text class="upload-text">{{formData.image ? '点击更换图片' : '点击上传图片'}}</text>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label required">产品名称</text>
+        <input class="form-input" name="name" placeholder="请输入产品名称" value="{{formData.name}}" />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">产品编号</text>
+        <input class="form-input" name="code" placeholder="请输入产品编号" value="{{formData.code}}" />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label required">产品类别</text>
+        <picker mode="selector" range="{{categories}}" bindchange="onCategoryChange" value="{{categoryIndex}}">
+          <view class="form-picker">{{formData.category || '请选择产品类别'}}</view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label required">产品单位</text>
+        <picker mode="selector" range="{{units}}" bindchange="onUnitChange" value="{{unitIndex}}">
+          <view class="form-picker">{{formData.unit || '请选择产品单位'}}</view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">规格名称</text>
+        <input class="form-input" name="specification" placeholder="请输入规格名称" value="{{formData.specification}}" />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">供应商</text>
+        <picker mode="selector" range="{{suppliers}}" range-key="name" bindchange="onSupplierChange" value="{{supplierIndex}}">
+          <view class="form-picker">{{formData.supplier.name || '请选择供应商'}}</view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">入库单价（元）</text>
+        <input class="form-input" type="digit" name="inboundPrice" placeholder="请输入入库单价" value="{{formData.inboundPrice}}" />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">出库单价（元）</text>
+        <input class="form-input" type="digit" name="outboundPrice" placeholder="请输入出库单价" value="{{formData.outboundPrice}}" />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">库存预警数量</text>
+        <input class="form-input" type="number" name="warningStock" placeholder="请输入预警数量" value="{{formData.warningStock}}" />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">启用状态</text>
+        <switch checked="{{formData.enabled}}" bindchange="onEnabledChange" color="{{primaryColor}}" />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">备注</text>
+        <textarea class="form-textarea" name="remark" placeholder="请输入备注信息" value="{{formData.remark}}" />
+      </view>
+    </view>
+
+    <view class="footer-buttons">
+      <button class="btn btn-primary" form-type="submit">保存</button>
+      <button class="btn btn-danger" wx:if="{{formData.id}}" bindtap="deleteProduct">删除</button>
+    </view>
+  </form>
+</view>

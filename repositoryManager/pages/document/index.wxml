@@ -1,0 +1,140 @@
+<view class="container">
+  <view class="search-section">
+    <view class="search-bar">
+      <view class="search-input">
+        <icon type="search" size="14"></icon>
+        <input type="text" placeholder="搜索单据号/产品/供应商/客户" bindinput="onSearchInput" value="{{searchKey}}" />
+      </view>
+      <view class="filter-btn" bindtap="showFilter">
+        <text>筛选</text>
+        <view class="filter-dot" wx:if="{{hasFilter}}"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="tab-bar">
+    <view class="tab {{activeTab === 'all' ? 'active' : ''}}" bindtap="switchTab" data-tab="all">
+      <text>全部</text>
+      <text class="count">{{allCount}}</text>
+    </view>
+    <view class="tab {{activeTab === 'inbound' ? 'active' : ''}}" bindtap="switchTab" data-tab="inbound">
+      <text>入库</text>
+      <text class="count">{{inboundCount}}</text>
+    </view>
+    <view class="tab {{activeTab === 'outbound' ? 'active' : ''}}" bindtap="switchTab" data-tab="outbound">
+      <text>出库</text>
+      <text class="count">{{outboundCount}}</text>
+    </view>
+  </view>
+
+  <scroll-view class="document-list" scroll-y bindscrolltolower="loadMore">
+    <view class="list-item" wx:for="{{filteredDocuments}}" wx:key="id" bindtap="viewDetail" data-type="{{item.documentType}}" data-id="{{item.id}}">
+      <view class="item-header">
+        <view class="left">
+          <text class="order-no">{{item.orderNo}}</text>
+          <text class="type {{item.documentType}}">{{item.type}}</text>
+        </view>
+        <text class="date">{{item.date}}</text>
+      </view>
+
+      <view class="item-content">
+        <view class="product-info">
+          <text class="product-name">{{item.product.name}}</text>
+          <text class="product-code">#{{item.product.code}}</text>
+        </view>
+
+        <view class="party-info">
+          <block wx:if="{{item.documentType === 'inbound'}}">
+            <text class="label">供应商：</text>
+            <text class="value">{{item.supplier || '无'}}</text>
+          </block>
+          <block wx:else>
+            <text class="label">客户：</text>
+            <text class="value">{{item.customer || '无'}}</text>
+          </block>
+        </view>
+
+        <view class="quantity-info">
+          <view class="quantity">
+            <text class="label">数量：</text>
+            <text class="value">{{item.quantity}} {{item.product.unit}}</text>
+          </view>
+          <view class="amount">
+            <text class="label">金额：</text>
+            <text class="value">¥{{item.amount}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="loading" wx:if="{{loading}}">
+      <text>加载中...</text>
+    </view>
+
+    <view class="no-more" wx:if="{{!loading && !hasMore}}">
+      <text>没有更多数据了</text>
+    </view>
+
+    <view class="empty" wx:if="{{filteredDocuments.length === 0}}">
+      <image src="/assets/images/empty.png" mode="aspectFit"></image>
+      <text>暂无相关单据</text>
+    </view>
+  </scroll-view>
+
+  <!-- 筛选弹窗 -->
+  <view class="filter-mask {{showFilterPopup ? 'show' : ''}}" bindtap="hideFilter">
+    <view class="filter-popup {{showFilterPopup ? 'show' : ''}}" catchtap="stopPropagation">
+      <view class="filter-header">
+        <text>筛选</text>
+        <view class="close-btn" bindtap="hideFilter">×</view>
+      </view>
+
+      <view class="filter-content">
+        <view class="filter-section">
+          <text class="section-title">单据类型</text>
+          <view class="tag-list">
+            <view class="tag {{filter.documentType === type.value ? 'active' : ''}}" 
+                  wx:for="{{documentTypes}}" 
+                  wx:key="value" 
+                  wx:for-item="type"
+                  bindtap="onDocumentTypeFilter" 
+                  data-type="{{type.value}}">
+              {{type.label}}
+            </view>
+          </view>
+        </view>
+
+        <view class="filter-section">
+          <text class="section-title">业务类型</text>
+          <view class="tag-list">
+            <view class="tag {{filter.type === type ? 'active' : ''}}" 
+                  wx:for="{{currentTypes}}" 
+                  wx:key="*this" 
+                  bindtap="onTypeFilter" 
+                  data-type="{{type}}">
+              {{type}}
+            </view>
+          </view>
+        </view>
+
+        <view class="filter-section">
+          <text class="section-title">日期范围</text>
+          <view class="date-range">
+            <picker mode="date" value="{{filter.startDate}}" bindchange="onStartDateChange">
+              <view class="date-picker">{{filter.startDate || '开始日期'}}</view>
+            </picker>
+            <text class="separator">至</text>
+            <picker mode="date" value="{{filter.endDate}}" bindchange="onEndDateChange">
+              <view class="date-picker">{{filter.endDate || '结束日期'}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class="filter-footer">
+        <button class="btn btn-default" bindtap="resetFilter">重置</button>
+        <button class="btn btn-primary" bindtap="applyFilter">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

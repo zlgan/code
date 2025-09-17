@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/product/list/index",
+    "pages/product/add/index",
+    "pages/inbound/index",
+    "pages/outbound/index",
+    "pages/document/index",
+    "pages/statistics/inventory/index",
+    "pages/statistics/summary/index",
+    "pages/statistics/history/index",
+    "pages/my/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#3A7BF9",
+    "navigationBarTitleText": "库存管理",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#3A7BF9",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/icons/home.png",
+        "selectedIconPath": "assets/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/statistics/inventory/index",
+        "text": "统计",
+        "iconPath": "assets/icons/statistics.png",
+        "selectedIconPath": "assets/icons/statistics-active.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "assets/icons/my.png",
+        "selectedIconPath": "assets/icons/my-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,121 @@
+.detail-card {
+  margin: 30rpx;
+}
+
+.card-header {
+  padding-bottom: 30rpx;
+  border-bottom: 2rpx solid var(--border-color);
+}
+
+.order-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.order-no {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-right: 20rpx;
+}
+
+.type {
+  font-size: 24rpx;
+  color: var(--primary-color);
+  background-color: var(--primary-color-light);
+  padding: 4rpx 16rpx;
+  border-radius: 4rpx;
+}
+
+.date {
+  font-size: 24rpx;
+  color: var(--text-color-secondary);
+}
+
+.card-content {
+  padding: 30rpx 0;
+}
+
+.info-section {
+  margin-bottom: 40rpx;
+}
+
+.info-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 20rpx;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  font-size: 28rpx;
+  color: var(--text-color-secondary);
+}
+
+.value {
+  font-size: 28rpx;
+  color: var(--text-color);
+}
+
+.amount {
+  font-size: 32rpx;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.remark {
+  font-size: 28rpx;
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: var(--background-color);
+  padding: 20rpx;
+  border-radius: 8rpx;
+}
+
+.card-footer {
+  padding-top: 30rpx;
+  border-top: 2rpx solid var(--border-color);
+}
+
+.create-time {
+  font-size: 24rpx;
+  color: var(--text-color-secondary);
+}
+
+.footer-buttons {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-buttons .btn {
+  flex: 1;
+  margin: 0 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+}

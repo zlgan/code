@@ -1,0 +1,165 @@
+/**app.wxss**/
+page {
+  --primary-color: #3A7BF9;
+  --danger-color: #F56C6C;
+  --warning-color: #E6A23C;
+  --success-color: #67C23A;
+  --text-color: #333333;
+  --text-color-secondary: #666666;
+  --border-color: #EBEEF5;
+  --background-color: #F5F7FA;
+  
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 28rpx;
+}
+
+/* 通用样式 */
+.container {
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 按钮样式 */
+.btn {
+  padding: 20rpx 40rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  line-height: 1.5;
+  text-align: center;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: #fff;
+}
+
+.btn-warning {
+  background-color: var(--warning-color);
+  color: #fff;
+}
+
+.btn-success {
+  background-color: var(--success-color);
+  color: #fff;
+}
+
+/* 表单样式 */
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.form-label {
+  margin-bottom: 16rpx;
+  color: var(--text-color-secondary);
+}
+
+.form-input {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 20rpx;
+  border: 2rpx solid var(--border-color);
+  border-radius: 8rpx;
+  box-sizing: border-box;
+}
+
+.form-picker {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 20rpx;
+  border: 2rpx solid var(--border-color);
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+/* 列表样式 */
+.list-item {
+  padding: 30rpx;
+  background-color: #fff;
+  border-bottom: 2rpx solid var(--border-color);
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+/* 文本样式 */
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-danger {
+  color: var(--danger-color);
+}
+
+.text-warning {
+  color: var(--warning-color);
+}
+
+.text-success {
+  color: var(--success-color);
+}
+
+.text-secondary {
+  color: var(--text-color-secondary);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* 图标尺寸 */
+.icon-small {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.icon-medium {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.icon-large {
+  width: 64rpx;
+  height: 64rpx;
+}

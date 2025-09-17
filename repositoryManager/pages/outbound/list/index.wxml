@@ -1,0 +1,90 @@
+<view class="container">
+  <view class="search-bar">
+    <view class="search-input">
+      <icon type="search" size="14"></icon>
+      <input type="text" placeholder="搜索单据号/产品/客户" bindinput="onSearchInput" value="{{searchKey}}" />
+    </view>
+    <view class="filter-btn" bindtap="showFilter">
+      <text>筛选</text>
+      <view class="filter-dot" wx:if="{{hasFilter}}"></view>
+    </view>
+  </view>
+
+  <view class="list-container">
+    <view class="record-item card" wx:for="{{filteredRecords}}" wx:key="id" bindtap="viewDetail" data-id="{{item.id}}">
+      <view class="record-header">
+        <text class="order-no">{{item.orderNo}}</text>
+        <text class="date">{{item.date}}</text>
+      </view>
+      <view class="record-content">
+        <view class="product-info">
+          <text class="product-name">{{item.product.name}}</text>
+          <text class="product-code">{{item.product.code}}</text>
+        </view>
+        <view class="customer-info" wx:if="{{item.customer}}">
+          <text class="customer">客户：{{item.customer}}</text>
+        </view>
+        <view class="quantity-info">
+          <text class="quantity">{{item.quantity}} {{item.product.unit}}</text>
+          <text class="price">¥{{item.price}}</text>
+        </view>
+      </view>
+      <view class="record-footer">
+        <text class="type">{{item.type}}</text>
+        <text class="amount">¥{{item.amount}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-tip" wx:if="{{filteredRecords.length === 0}}">
+    <image src="/images/empty.png" mode="aspectFit"></image>
+    <text>暂无出库记录</text>
+  </view>
+
+  <view class="add-btn" bindtap="navigateToAdd">
+    <text class="add-icon">+</text>
+  </view>
+
+  <!-- 筛选弹窗 -->
+  <view class="filter-mask {{showFilterPopup ? 'show' : ''}}" bindtap="hideFilter"></view>
+  <view class="filter-popup {{showFilterPopup ? 'show' : ''}}">
+    <view class="filter-header">
+      <text>筛选条件</text>
+      <view class="close-btn" bindtap="hideFilter">×</view>
+    </view>
+    
+    <view class="filter-content">
+      <view class="filter-section">
+        <text class="section-title">出库类型</text>
+        <view class="tag-list">
+          <view class="tag {{filter.type === type ? 'active' : ''}}" 
+                wx:for="{{outboundTypes}}" 
+                wx:key="*this" 
+                wx:for-item="type"
+                bindtap="onTypeFilter"
+                data-type="{{type}}">
+            {{type}}
+          </view>
+        </view>
+      </view>
+
+      <view class="filter-section">
+        <text class="section-title">日期范围</text>
+        <view class="date-range">
+          <picker mode="date" bindchange="onStartDateChange" value="{{filter.startDate}}">
+            <view class="date-picker">{{filter.startDate || '开始日期'}}</view>
+          </picker>
+          <text class="separator">至</text>
+          <picker mode="date" bindchange="onEndDateChange" value="{{filter.endDate}}">
+            <view class="date-picker">{{filter.endDate || '结束日期'}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="filter-footer">
+      <button class="btn btn-default" bindtap="resetFilter">重置</button>
+      <button class="btn btn-primary" bindtap="applyFilter">确定</button>
+    </view>
+  </view>
+</view>

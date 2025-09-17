@@ -1,0 +1,79 @@
+<view class="container">
+  <form bindsubmit="submitForm">
+    <view class="form-group card">
+      <view class="form-item">
+        <text class="form-label">单据号</text>
+        <input class="form-input" disabled value="{{formData.orderNo}}" />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label required">入库类型</text>
+        <picker mode="selector" range="{{inboundTypes}}" bindchange="onTypeChange" value="{{typeIndex}}">
+          <view class="form-picker">{{formData.type || '请选择入库类型'}}</view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label required">入库日期</text>
+        <picker mode="date" bindchange="onDateChange" value="{{formData.date}}">
+          <view class="form-picker">{{formData.date || '请选择入库日期'}}</view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">供应商</text>
+        <picker mode="selector" range="{{suppliers}}" range-key="name" bindchange="onSupplierChange" value="{{supplierIndex}}">
+          <view class="form-picker">{{formData.supplier.name || '请选择供应商'}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="form-group card">
+      <view class="section-title">产品信息</view>
+      
+      <view class="form-item">
+        <text class="form-label required">产品名称</text>
+        <picker mode="selector" range="{{products}}" range-key="name" bindchange="onProductChange" value="{{productIndex}}">
+          <view class="form-picker">{{formData.product.name || '请选择产品'}}</view>
+        </picker>
+      </view>
+
+      <view class="product-info" wx:if="{{formData.product.id}}">
+        <view class="info-item">
+          <text class="label">当前库存</text>
+          <text class="value">{{formData.product.stock}} {{formData.product.unit}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">建议入库价</text>
+          <text class="value">¥{{formData.product.inboundPrice}}</text>
+        </view>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label required">入库数量</text>
+        <input class="form-input" type="digit" name="quantity" placeholder="请输入入库数量" value="{{formData.quantity}}" bindinput="onQuantityInput" />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label required">入库单价</text>
+        <input class="form-input" type="digit" name="price" placeholder="请输入入库单价" value="{{formData.price}}" bindinput="onPriceInput" />
+      </view>
+
+      <view class="amount-info">
+        <text class="label">入库金额</text>
+        <text class="value">¥{{totalAmount}}</text>
+      </view>
+    </view>
+
+    <view class="form-group card">
+      <view class="form-item">
+        <text class="form-label">备注</text>
+        <textarea class="form-textarea" name="remark" placeholder="请输入备注信息" value="{{formData.remark}}" />
+      </view>
+    </view>
+
+    <view class="footer-buttons">
+      <button class="btn btn-primary" form-type="submit">保存入库</button>
+    </view>
+  </form>
+</view>

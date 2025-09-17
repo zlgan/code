@@ -1,0 +1,44 @@
+<![CDATA[<!-- pages/profile/index.wxml -->
+<view class="container">
+  <!-- 用户信息卡片 -->
+  <view class="user-card">
+    <view class="avatar-wrapper">
+      <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+    </view>
+    <view class="user-info">
+      <text class="nickname">{{userInfo.nickName || '未登录'}}</text>
+      <text class="company" wx:if="{{userInfo}}">{{company || '未设置公司信息'}}</text>
+    </view>
+    <button class="login-btn" wx:if="{{!userInfo}}" bindtap="handleLogin">登录</button>
+  </view>
+
+  <!-- 功能列表 -->
+  <view class="function-list">
+    <view class="function-item" bindtap="navigateToCompanyInfo">
+      <view class="left">
+        <image class="icon" src="/images/company.png" mode="aspectFit"></image>
+        <text>公司信息</text>
+      </view>
+      <image class="arrow" src="/images/arrow-right.png" mode="aspectFit"></image>
+    </view>
+    <view class="function-item" bindtap="navigateToSettings">
+      <view class="left">
+        <image class="icon" src="/images/settings.png" mode="aspectFit"></image>
+        <text>系统设置</text>
+      </view>
+      <image class="arrow" src="/images/arrow-right.png" mode="aspectFit"></image>
+    </view>
+    <view class="function-item" bindtap="navigateToAbout">
+      <view class="left">
+        <image class="icon" src="/images/about.png" mode="aspectFit"></image>
+        <text>关于我们</text>
+      </view>
+      <image class="arrow" src="/images/arrow-right.png" mode="aspectFit"></image>
+    </view>
+  </view>
+
+  <!-- 版本信息 -->
+  <view class="version-info">
+    <text>版本 1.0.0</text>
+  </view>
+</view>]]>

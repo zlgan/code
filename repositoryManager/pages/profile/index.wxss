@@ -1,0 +1,113 @@
+/* pages/profile/index.wxss */
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 40rpx;
+}
+
+/* 用户信息卡片 */
+.user-card {
+  background-color: #fff;
+  padding: 40rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.avatar-wrapper {
+  margin-right: 30rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  background-color: #f0f0f0;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.nickname {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.company {
+  font-size: 28rpx;
+  color: #666;
+  display: block;
+}
+
+.login-btn {
+  position: absolute;
+  right: 40rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #1aad19;
+  color: #fff;
+  font-size: 28rpx;
+  padding: 12rpx 30rpx;
+  border-radius: 30rpx;
+  border: none;
+}
+
+.login-btn::after {
+  border: none;
+}
+
+/* 功能列表 */
+.function-list {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.function-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 40rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.function-item:last-child {
+  border-bottom: none;
+}
+
+.function-item .left {
+  display: flex;
+  align-items: center;
+}
+
+.function-item .icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.function-item text {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.function-item .arrow {
+  width: 32rpx;
+  height: 32rpx;
+  opacity: 0.3;
+}
+
+/* 版本信息 */
+.version-info {
+  text-align: center;
+  padding: 40rpx 0;
+}
+
+.version-info text {
+  font-size: 24rpx;
+  color: #999;
+}

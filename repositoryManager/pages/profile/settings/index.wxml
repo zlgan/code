@@ -1,0 +1,50 @@
+<![CDATA[<!-- pages/profile/settings/index.wxml -->
+<view class="container">
+  <!-- 基本设置 -->
+  <view class="section">
+    <view class="section-title">基本设置</view>
+    <view class="setting-list">
+      <view class="setting-item">
+        <text>消息通知</text>
+        <switch checked="{{settings.notification}}" bindchange="handleNotificationChange"></switch>
+      </view>
+      <view class="setting-item">
+        <text>声音提醒</text>
+        <switch checked="{{settings.sound}}" bindchange="handleSoundChange"></switch>
+      </view>
+    </view>
+  </view>
+
+  <!-- 数据管理 -->
+  <view class="section">
+    <view class="section-title">数据管理</view>
+    <view class="setting-list">
+      <view class="setting-item">
+        <text>数据备份</text>
+        <view class="backup-info" wx:if="{{settings.lastBackup}}">
+          <text class="backup-time">上次：{{settings.lastBackup}}</text>
+          <text class="backup-btn" bindtap="handleBackup">备份</text>
+        </view>
+        <text class="backup-btn" bindtap="handleBackup" wx:else>备份</text>
+      </view>
+      <view class="setting-item warning">
+        <text>清除缓存</text>
+        <text class="clear-btn" bindtap="handleClearCache">清除</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 其他设置 -->
+  <view class="section">
+    <view class="section-title">其他设置</view>
+    <view class="setting-list">
+      <view class="setting-item">
+        <text>检查更新</text>
+        <text class="check-btn" bindtap="handleCheckUpdate">检查</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 退出登录 -->
+  <view class="logout-btn" bindtap="handleLogout" wx:if="{{hasLogin}}">退出登录</view>
+</view>]]>

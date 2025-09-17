@@ -1,0 +1,78 @@
+/* pages/profile/settings/index.wxss */
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 20rpx;
+}
+
+.section {
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  color: #999;
+  padding: 20rpx 10rpx;
+}
+
+.setting-list {
+  background-color: #fff;
+  border-radius: 8rpx;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-item text {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.backup-info {
+  display: flex;
+  align-items: center;
+}
+
+.backup-time {
+  font-size: 24rpx;
+  color: #999;
+  margin-right: 20rpx;
+}
+
+.backup-btn {
+  color: #1aad19;
+  font-size: 28rpx;
+}
+
+.clear-btn {
+  color: #ff4d4f;
+  font-size: 28rpx;
+}
+
+.check-btn {
+  color: #1aad19;
+  font-size: 28rpx;
+}
+
+.warning text:first-child {
+  color: #ff4d4f;
+}
+
+.logout-btn {
+  margin-top: 60rpx;
+  background-color: #fff;
+  color: #ff4d4f;
+  font-size: 32rpx;
+  text-align: center;
+  padding: 30rpx 0;
+  border-radius: 8rpx;
+}

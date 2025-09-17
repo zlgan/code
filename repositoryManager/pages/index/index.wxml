@@ -1,0 +1,52 @@
+<view class="container">
+  <view class="header card">
+    <view class="title">库存管理系统</view>
+    <view class="subtitle">便捷管理您的商品库存</view>
+  </view>
+
+  <view class="grid">
+    <view class="grid-item" bindtap="navigateTo" data-path="/pages/product/list/index">
+      <image class="grid-icon" src="/assets/icons/product.png" mode="aspectFit"></image>
+      <text>产品管理</text>
+    </view>
+    <view class="grid-item" bindtap="navigateTo" data-path="/pages/inbound/index">
+      <image class="grid-icon" src="/assets/icons/inbound.png" mode="aspectFit"></image>
+      <text>入库管理</text>
+    </view>
+    <view class="grid-item" bindtap="navigateTo" data-path="/pages/outbound/index">
+      <image class="grid-icon" src="/assets/icons/outbound.png" mode="aspectFit"></image>
+      <text>出库管理</text>
+    </view>
+    <view class="grid-item" bindtap="navigateTo" data-path="/pages/document/index">
+      <image class="grid-icon" src="/assets/icons/document.png" mode="aspectFit"></image>
+      <text>单据查询</text>
+    </view>
+    <view class="grid-item" bindtap="navigateTo" data-path="/pages/statistics/inventory/index">
+      <image class="grid-icon" src="/assets/icons/inventory.png" mode="aspectFit"></image>
+      <text>库存盘点</text>
+    </view>
+    <view class="grid-item" bindtap="navigateTo" data-path="/pages/statistics/summary/index">
+      <image class="grid-icon" src="/assets/icons/summary.png" mode="aspectFit"></image>
+      <text>出入库统计</text>
+    </view>
+  </view>
+
+  <view class="quick-stats card">
+    <view class="stat-item">
+      <text class="stat-label">产品总数</text>
+      <text class="stat-value">{{stats.productCount}}</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-label">库存预警</text>
+      <text class="stat-value text-warning">{{stats.warningCount}}</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-label">今日入库</text>
+      <text class="stat-value text-success">{{stats.todayInbound}}</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-label">今日出库</text>
+      <text class="stat-value text-primary">{{stats.todayOutbound}}</text>
+    </view>
+  </view>
+</view>

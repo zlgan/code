@@ -1,0 +1,304 @@
+.container {
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+
+.header {
+  background-color: #fff;
+  padding: 30rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.date-range {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-picker {
+  width: 240rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center;
+  background-color: var(--background-color);
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  color: var(--text-color);
+}
+
+.separator {
+  margin: 0 20rpx;
+  color: var(--text-color-secondary);
+  font-size: 28rpx;
+}
+
+.overview-section {
+  margin-top: 132rpx;
+  padding: 30rpx;
+  display: flex;
+  gap: 30rpx;
+}
+
+.overview-card {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 30rpx;
+}
+
+.stat-item {
+  margin-bottom: 20rpx;
+}
+
+.stat-item:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  font-size: 26rpx;
+  color: var(--text-color-secondary);
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.value {
+  font-size: 28rpx;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.value.amount {
+  color: var(--primary-color);
+  font-size: 36rpx;
+}
+
+.tab-bar {
+  display: flex;
+  background-color: #fff;
+  padding: 0 30rpx;
+  margin-top: 30rpx;
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 20rpx 0;
+  position: relative;
+  color: var(--text-color);
+}
+
+.tab.active {
+  color: var(--primary-color);
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 4rpx;
+  background-color: var(--primary-color);
+  border-radius: 2rpx;
+}
+
+.tab text {
+  font-size: 28rpx;
+}
+
+.content-section {
+  padding: 30rpx;
+}
+
+.analysis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.type-switch {
+  display: flex;
+  background-color: var(--background-color);
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.switch-item {
+  padding: 12rpx 24rpx;
+  font-size: 24rpx;
+  color: var(--text-color);
+  background-color: transparent;
+  transition: all 0.3s;
+}
+
+.switch-item.active {
+  color: #fff;
+  background-color: var(--primary-color);
+}
+
+/* 产品分析 */
+.product-list {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.product-item {
+  margin-bottom: 30rpx;
+}
+
+.product-item:last-child {
+  margin-bottom: 0;
+}
+
+.rank-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.rank-number {
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  background-color: var(--background-color);
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: var(--text-color);
+  margin-right: 20rpx;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-name {
+  font-size: 28rpx;
+  color: var(--text-color);
+  margin-right: 16rpx;
+}
+
+.product-code {
+  font-size: 24rpx;
+  color: var(--text-color-secondary);
+}
+
+.stat-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.stat-value {
+  font-size: 28rpx;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-right: 12rpx;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: var(--text-color-secondary);
+}
+
+.progress-bar {
+  height: 8rpx;
+  background-color: var(--background-color);
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 4rpx;
+  transition: width 0.3s ease-in-out;
+}
+
+/* 趋势分析 */
+.trend-chart {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.trend-chart .tooltip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 10rpx 20rpx;
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  z-index: 10;
+}
+
+.trend-chart .tooltip view {
+  margin: 4rpx 0;
+  white-space: nowrap;
+}
+
+.chart {
+  width: 100%;
+  height: 500rpx;
+}
+
+.trend-legend {
+  display: flex;
+  justify-content: center;
+  gap: 40rpx;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+}
+
+.color-block {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 4rpx;
+  margin-right: 12rpx;
+}
+
+.color-block.inbound {
+  background-color: var(--primary-color);
+}
+
+.color-block.outbound {
+  background-color: #ff9800;
+}
+
+.legend-item text {
+  font-size: 24rpx;
+  color: var(--text-color);
+}
