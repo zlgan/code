@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="MongoChangeStream.DDD.API/MongoChangeStream.DDD.API.csproj" />
+  <Project Path="MongoChangeStream.DDD.Application/MongoChangeStream.DDD.Application.csproj" />
+  <Project Path="MongoChangeStream.DDD.Domain/MongoChangeStream.DDD.Domain.csproj" />
+  <Project Path="MongoChangeStream.DDD.Infrastructure/MongoChangeStream.DDD.Infrastructure.csproj" />
+</Solution>

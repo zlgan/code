@@ -1,0 +1,6 @@
+@MongoChangeStream.DDD.API_HostAddress = http://localhost:5120
+
+GET {{MongoChangeStream.DDD.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

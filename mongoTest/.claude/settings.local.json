@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mongod --version)",
+      "Bash(netstat -ano)",
+      "Bash(scoop --version)",
+      "Bash(choco --version)",
+      "Bash(dotnet:*)"
+    ]
+  }
+}
